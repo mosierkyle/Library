@@ -49,6 +49,8 @@ addBookToLibrary('Unscripted', 'MJ Demarco', 432, 'reading')
 
 addBookToLibrary('The Almanack of Naval Ravikant', 'Eric Jorgenson', 242, 'read')
 
+addBookToLibrary('The Way of the Superior Man', 'David Deida', 224, 'not read');
+
 function updateLibrary() {
     totalReadingCounter = 0;
     totalNotReadCounter = 0;
