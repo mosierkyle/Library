@@ -6,6 +6,9 @@ let totalReadingCounter = 0;
 let totalNotReadCounter = 0;
 
 const books = document.querySelector('#books');
+const addBookBtn = document.querySelector('#add-book-btn');
+const dialog = document.querySelector('#new-book-dialog')
+
 const myLibrary = [];
 
 function book(title, author, pages, status) {
@@ -35,9 +38,9 @@ function updateStats(status, status1) {
         status1.classList.add('not-read')
     }
     document.querySelector('#total-books').textContent = `Books: ${totalBooksCounter}`
-    document.querySelector('#total-read').textContent = `Books: ${totalReadCounter}`
-    document.querySelector('#total-reading').textContent = `Books: ${totalReadingCounter}`
-    document.querySelector('#total-not-read').textContent = `Books: ${totalNotReadCounter}`
+    document.querySelector('#total-read').textContent = `Books Read: ${totalReadCounter}`
+    document.querySelector('#total-reading').textContent = `Books Reading: ${totalReadingCounter}`
+    document.querySelector('#total-not-read').textContent = `Going to Read: ${totalNotReadCounter}`
 }
 
 
@@ -47,6 +50,9 @@ addBookToLibrary('Unscripted', 'MJ Demarco', 432, 'reading')
 addBookToLibrary('The Almanack of Naval Ravikant', 'Eric Jorgenson', 242, 'read')
 
 function updateLibrary() {
+    while(books.firstChild) {
+        books.removeChild(books.firstChild);
+    }
     for(let i = 0; i < myLibrary.length; i++) {
         let book1 = document.createElement('div');
         books.appendChild(book1);
@@ -93,8 +99,28 @@ function updateLibrary() {
     }
 }
 
-const libraryName = prompt(`What's your name?`)
+addBookBtn.addEventListener('click', ()=> {
+    dialog.showModal()
+})
+
+add.addEventListener('click', (event)=> {
+    event.preventDefault();
+    dialog.close()
+    const value1 = document.querySelector('#new-book-title').value
+    const value2 = document.querySelector('#new-book-author').value
+    const value3 = document.querySelector('#new-book-pages').value
+    const value4 = document.querySelector('#new-book-status').value
+    const addNewBook = new book(value1, value2, value3, value4);
+    myLibrary.push(addNewBook);
+    updateLibrary()
+    document.querySelector('#new-book-title').value = ''
+    document.querySelector('#new-book-author').value = ''
+    document.querySelector('#new-book-pages').value = ''
+    document.querySelector('#new-book-status').value = ''
+})
+
+
+const libraryName = 'Kyle'
 document.querySelector('#library-name').textContent = `${libraryName}'s`
-updateLibrary()
-console.log(myLibrary[0].title)
+
 

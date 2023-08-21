@@ -8,6 +8,24 @@
     <script src="script.js" defer></script>
 </head>
 <body>
+    <dialog id="new-book-dialog">
+        <form id="new-book-info">
+            <div id="new-book-questions">
+                <label for="new-book-title">Book Title</label>
+                <input class="enter" type="text" id="new-book-title"name="new-book">
+                <label for="new-book-author">Book Author</label>
+                <input class="enter" type="text" id="new-book-author"name="new-book">
+                <label for="new-book-pages">Book Pages</label>
+                <input class="enter" type="number" id="new-book-pages"name="new-book">
+                <label for="new-book-status">Have You Read it?</label>
+                <input class="enter" type="text" id="new-book-status"name="new-book">
+            </div>
+            <div id="new-book-buttons">
+                <button id="add" value="default">Add</button>
+                <button id='cancel' value="cancel" formmethod="dialog">Cancel</button>
+            </div>
+        </form>
+    </dialog>
     <div id="main-container">
         <div id="header">
             <div id="buttons"></div>
