@@ -31,7 +31,7 @@ function updateStats(status, status1) {
         status1.classList.add('read')
         document.querySelector('#total-books')
     } else if (status === 'reading') {
-        totalReadingCounter +=1;
+        totalReadingCounter += 1;
         status1.classList.add('reading')
     } else if (status === 'not read') {
         totalNotReadCounter += 1;
@@ -50,9 +50,10 @@ addBookToLibrary('Unscripted', 'MJ Demarco', 432, 'reading')
 addBookToLibrary('The Almanack of Naval Ravikant', 'Eric Jorgenson', 242, 'read')
 
 function updateLibrary() {
-    totalReadCounter = 0;
     totalReadingCounter = 0;
     totalNotReadCounter = 0;
+    totalReadCounter = 0;
+    totalBooksCounter = 0;
     while(books.firstChild) {
         books.removeChild(books.firstChild);
     }
@@ -99,9 +100,8 @@ function updateLibrary() {
         delete1.textContent = 'remove';
         delete1.addEventListener('click', ()=> {
             myLibrary.splice(i, 1)
-            updateLibrary()
             if(status1.textContent === 'read') {
-                totalReadCounter--
+                totalReadCounter--;
                 status1.classList.add('read')
                 document.querySelector('#total-books')
             } else if (status1.textContent === 'reading') {
@@ -111,6 +111,11 @@ function updateLibrary() {
                 totalNotReadCounter--;
                 status1.classList.add('not-read')
             }
+            updateLibrary()
+            document.querySelector('#total-books').textContent = `Books: ${totalBooksCounter}`
+            document.querySelector('#total-read').textContent = `Books Read: ${totalReadCounter}`
+            document.querySelector('#total-reading').textContent = `Books Reading: ${totalReadingCounter}`
+            document.querySelector('#total-not-read').textContent = `Going to Read: ${totalNotReadCounter}`
         })
         updateStats(myLibrary[i].status, status1)
     }
