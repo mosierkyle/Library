@@ -156,6 +156,11 @@
     text-align:center;
 }
 
+.book-delete:hover {
+    cursor: pointer;
+}
+
+
 .read {
     background-color: rgb(67, 186, 65);
     font-size: 1.2rem;

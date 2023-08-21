@@ -1,9 +1,9 @@
 'use strict'
 
-let totalBooksCounter = 0;
 let totalReadCounter = 0;
 let totalReadingCounter = 0;
 let totalNotReadCounter = 0;
+let totalBooksCounter = 0;
 
 const books = document.querySelector('#books');
 const addBookBtn = document.querySelector('#add-book-btn');
@@ -25,13 +25,13 @@ function addBookToLibrary(title,author,pages,status) {
 }
 
 function updateStats(status, status1) {
-    totalBooksCounter += 1;
+    totalBooksCounter = myLibrary.length
     if(status === 'read') {
-        totalReadCounter += 1
+        totalReadCounter += 1;
         status1.classList.add('read')
         document.querySelector('#total-books')
     } else if (status === 'reading') {
-        totalReadingCounter += 1;
+        totalReadingCounter +=1;
         status1.classList.add('reading')
     } else if (status === 'not read') {
         totalNotReadCounter += 1;
@@ -50,6 +50,9 @@ addBookToLibrary('Unscripted', 'MJ Demarco', 432, 'reading')
 addBookToLibrary('The Almanack of Naval Ravikant', 'Eric Jorgenson', 242, 'read')
 
 function updateLibrary() {
+    totalReadCounter = 0;
+    totalReadingCounter = 0;
+    totalNotReadCounter = 0;
     while(books.firstChild) {
         books.removeChild(books.firstChild);
     }
@@ -93,8 +96,22 @@ function updateLibrary() {
         book1.appendChild(delete1)
         delete1.setAttribute('id', `delete${i}`)
         delete1.setAttribute('class', 'book-delete')
-        delete1.textContent = 'remove'
-        
+        delete1.textContent = 'remove';
+        delete1.addEventListener('click', ()=> {
+            myLibrary.splice(i, 1)
+            updateLibrary()
+            if(status1.textContent === 'read') {
+                totalReadCounter--
+                status1.classList.add('read')
+                document.querySelector('#total-books')
+            } else if (status1.textContent === 'reading') {
+                totalReadingCounter--;
+                status1.classList.add('reading')
+            } else if (status1.textContent === 'not read') {
+                totalNotReadCounter--;
+                status1.classList.add('not-read')
+            }
+        })
         updateStats(myLibrary[i].status, status1)
     }
 }
@@ -119,8 +136,6 @@ add.addEventListener('click', (event)=> {
     document.querySelector('#new-book-status').value = ''
 })
 
-
 const libraryName = 'Kyle'
 document.querySelector('#library-name').textContent = `${libraryName}'s`
-
-
+updateLibrary()
