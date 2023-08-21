@@ -87,7 +87,7 @@
     border: solid;
     grid-row: 2 / 3;
     display: grid;
-    grid-template: repeat(auto-fit, 250px) / repeat(auto-fit, minmax(200px, 1fr));
+    grid-template: repeat(auto-fit, 250px) / repeat(auto-fit, 300px);
     padding: 2.5rem;
     gap: 2.5rem;
     grid-auto-flow: row;
