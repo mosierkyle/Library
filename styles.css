@@ -226,10 +226,12 @@
     border-radius: 10px;
     position: fixed;
     padding: 1rem;
-    margin-top: 25vh;
+    margin-top: 22.5vh;
     margin-left: auto;
     margin-right: auto;
     z-index: 999;
+    border-left: 10px solid black;
+    box-shadow: 1px 2px 10px rgb(204, 204, 204);
 }
 
 form {
@@ -291,6 +293,14 @@ label {
     height: 1.5rem;
     width: 250px;
     padding-left: .25rem;
+    border-radius: 10px;
+}
+
+#new-book-status {
+    border: solid;
+    height: 1.5rem;
+    width: 250px;
+    padding-left: none;
 }
 
 #footer {
