@@ -38,7 +38,7 @@ function updateStats(status, status1) {
     document.querySelector('#total-books').textContent = `Books: ${totalBooksCounter}`
     document.querySelector('#total-read').textContent = `Books Read: ${totalReadCounter}`
     document.querySelector('#total-reading').textContent = `Books Reading: ${totalReadingCounter}`
-    document.querySelector('#total-not-read').textContent = `Going to Read: ${totalNotReadCounter}`
+    document.querySelector('#total-not-read').textContent = `Books to Read: ${totalNotReadCounter}`
 }
 
 function changeStatus(i) {
@@ -64,7 +64,7 @@ function changeStatus(i) {
         document.querySelector('#total-books').textContent = `Books: ${totalBooksCounter}`
         document.querySelector('#total-read').textContent = `Books Read: ${totalReadCounter}`
         document.querySelector('#total-reading').textContent = `Books Reading: ${totalReadingCounter}`
-        document.querySelector('#total-not-read').textContent = `Going to Read: ${totalNotReadCounter}`
+        document.querySelector('#total-not-read').textContent = `Books to Read: ${totalNotReadCounter}`
     })
 }
 
@@ -136,7 +136,7 @@ function updateLibrary() {
             document.querySelector('#total-books').textContent = `Books: ${totalBooksCounter}`
             document.querySelector('#total-read').textContent = `Books Read: ${totalReadCounter}`
             document.querySelector('#total-reading').textContent = `Books Reading: ${totalReadingCounter}`
-            document.querySelector('#total-not-read').textContent = `Going to Read: ${totalNotReadCounter}`
+            document.querySelector('#total-not-read').textContent = `Books to Read: ${totalNotReadCounter}`
         })
         updateStats(myLibrary[i].status, status1)
     }
@@ -165,6 +165,19 @@ add.addEventListener('click', (event)=> {
 addBookToLibrary('Unscripted', 'MJ Demarco', 432, 'reading')
 addBookToLibrary('The Almanack of Naval Ravikant', 'Eric Jorgenson', 242, 'read')
 addBookToLibrary('The Way of the Superior Man', 'David Deida', 224, 'not read');
+addBookToLibrary('100M offers', 'Alex Hormozi', 210, 'read');
+addBookToLibrary('How to Win Friends and Influence People', 'Dale Carnegie', 320, 'read');
+addBookToLibrary('Millionare Fastlane', 'MJ Demarco', 336, 'read');
+addBookToLibrary('Rich Dad Poor Dad', 'Rober Kiyosaki', 336, 'read');
+addBookToLibrary('The Alchemist', 'Paulo Coelho', 87, 'read');
+addBookToLibrary('Dune', 'Frank Herbert', 897, 'read');
+addBookToLibrary('Dune Messiah', 'Frank Herbert', 304, 'read');
+addBookToLibrary('The Children of Dune', 'Frank Herbert', 444, 'read');
+addBookToLibrary('Never Finished', 'David Goggins', 312, 'read');
+addBookToLibrary('48 Laws of Power', 'Robert Greene', 484, 'read');
+addBookToLibrary('Meditations', 'Marcus Aurelius', 410, 'read');
+addBookToLibrary("Can't Hurt Me", 'David Goggins', 320, 'read');
+addBookToLibrary('100M leads', 'Alex Hormozi', 482, 'reading');
 
 const libraryName = 'Kyle'
 document.querySelector('#library-name').textContent = `${libraryName}'s`
