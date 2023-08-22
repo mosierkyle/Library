@@ -4,11 +4,9 @@ let totalReadCounter = 0;
 let totalReadingCounter = 0;
 let totalNotReadCounter = 0;
 let totalBooksCounter = 0;
-
 const books = document.querySelector('#books');
 const addBookBtn = document.querySelector('#add-book-btn');
 const dialog = document.querySelector('#new-book-dialog')
-
 const myLibrary = [];
 
 function book(title, author, pages, status) {
@@ -43,14 +41,34 @@ function updateStats(status, status1) {
     document.querySelector('#total-not-read').textContent = `Going to Read: ${totalNotReadCounter}`
 }
 
+function changeStatus(i) {
+    const bookStatusButton = document.querySelector(`#status${i}`)
+    bookStatusButton.addEventListener('click', ()=> {
+        const currentStatus = bookStatusButton.textContent
+        if(currentStatus === 'read') {
+            bookStatusButton.className = 'book-status reading'
+            bookStatusButton.textContent = 'reading'
+            totalReadCounter--
+            totalReadingCounter++
+        } else if(currentStatus === "reading") {
+            bookStatusButton.className = 'book-status not-read'
+            bookStatusButton.textContent = 'not read'
+            totalReadingCounter--
+            totalNotReadCounter++
+        } else if(currentStatus === 'not read') {
+            bookStatusButton.className = 'book-status read'
+            bookStatusButton.textContent = 'read'
+            totalNotReadCounter--
+            totalReadCounter++
+        }
+        document.querySelector('#total-books').textContent = `Books: ${totalBooksCounter}`
+        document.querySelector('#total-read').textContent = `Books Read: ${totalReadCounter}`
+        document.querySelector('#total-reading').textContent = `Books Reading: ${totalReadingCounter}`
+        document.querySelector('#total-not-read').textContent = `Going to Read: ${totalNotReadCounter}`
+    })
+}
 
 //adding a book
-addBookToLibrary('Unscripted', 'MJ Demarco', 432, 'reading')
-
-addBookToLibrary('The Almanack of Naval Ravikant', 'Eric Jorgenson', 242, 'read')
-
-addBookToLibrary('The Way of the Superior Man', 'David Deida', 224, 'not read');
-
 function updateLibrary() {
     totalReadingCounter = 0;
     totalNotReadCounter = 0;
@@ -95,6 +113,7 @@ function updateLibrary() {
         status1.setAttribute('id', `status${i}`)
         status1.setAttribute('class', 'book-status')
         status1.textContent = myLibrary[i].status
+        changeStatus(i)
 
         book1.appendChild(delete1)
         delete1.setAttribute('id', `delete${i}`)
@@ -143,6 +162,11 @@ add.addEventListener('click', (event)=> {
     document.querySelector('#new-book-status').value = ''
 })
 
+addBookToLibrary('Unscripted', 'MJ Demarco', 432, 'reading')
+addBookToLibrary('The Almanack of Naval Ravikant', 'Eric Jorgenson', 242, 'read')
+addBookToLibrary('The Way of the Superior Man', 'David Deida', 224, 'not read');
+
 const libraryName = 'Kyle'
 document.querySelector('#library-name').textContent = `${libraryName}'s`
 updateLibrary()
+
