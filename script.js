@@ -31,7 +31,7 @@ function updateStats(status, status1) {
     } else if (status === 'reading') {
         totalReadingCounter += 1;
         status1.classList.add('reading')
-    } else if (status === 'not read') {
+    } else if (status === 'not-read') {
         totalNotReadCounter += 1;
         status1.classList.add('not-read')
     }
@@ -52,10 +52,10 @@ function changeStatus(i) {
             totalReadingCounter++
         } else if(currentStatus === "reading") {
             bookStatusButton.className = 'book-status not-read'
-            bookStatusButton.textContent = 'not read'
+            bookStatusButton.textContent = 'not-read'
             totalReadingCounter--
             totalNotReadCounter++
-        } else if(currentStatus === 'not read') {
+        } else if(currentStatus === 'not-read') {
             bookStatusButton.className = 'book-status read'
             bookStatusButton.textContent = 'read'
             totalNotReadCounter--
@@ -128,7 +128,7 @@ function updateLibrary() {
             } else if (status1.textContent === 'reading') {
                 totalReadingCounter--;
                 status1.classList.add('reading')
-            } else if (status1.textContent === 'not read') {
+            } else if (status1.textContent === 'not-read') {
                 totalNotReadCounter--;
                 status1.classList.add('not-read')
             }
@@ -164,7 +164,7 @@ add.addEventListener('click', (event)=> {
 
 addBookToLibrary('Unscripted', 'MJ Demarco', 432, 'reading')
 addBookToLibrary('The Almanack of Naval Ravikant', 'Eric Jorgenson', 242, 'read')
-addBookToLibrary('The Way of the Superior Man', 'David Deida', 224, 'not read');
+addBookToLibrary('The Way of the Superior Man', 'David Deida', 224, 'not-read');
 addBookToLibrary('100M offers', 'Alex Hormozi', 210, 'read');
 addBookToLibrary('How to Win Friends and Influence People', 'Dale Carnegie', 320, 'read');
 addBookToLibrary('Millionare Fastlane', 'MJ Demarco', 336, 'read');
