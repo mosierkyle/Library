@@ -1,58 +1,79 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Library</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles.css" />
     <script src="script.js" defer></script>
-</head>
-<body>
+  </head>
+  <body>
+    <div id="body"></div>
     <dialog id="new-book-dialog">
-        <form id="new-book-info">
-            <div id="new-book-questions">
-                <label for="new-book-title">Book Title</label>
-                <input class="enter" type="text" id="new-book-title"name="new-book">
-                <label for="new-book-author">Book Author</label>
-                <input class="enter" type="text" id="new-book-author"name="new-book">
-                <label for="new-book-pages">Book Pages</label>
-                <input class="enter" type="number" id="new-book-pages"name="new-book">
-                <label for="new-book-status">Have You Read it?</label>
-                <select class="enter" type="text" id="new-book-status"name="new-book">
-                    <option value="read">read</option>
-                    <option value="reading">reading</option>
-                    <option value="not-read">not-read</option>
-                </select>
-            </div>
-            <div id="new-book-buttons">
-                <button id="add" value="default">Add</button>
-                <button id='cancel' value="cancel" formmethod="dialog">Cancel</button>
-            </div>
-        </form>
+      <form id="new-book-info">
+        <div id="new-book-questions">
+          <label for="new-book-title">Book Title</label>
+          <input
+            class="enter"
+            type="text"
+            id="new-book-title"
+            name="new-book"
+          />
+          <label for="new-book-author">Book Author</label>
+          <input
+            class="enter"
+            type="text"
+            id="new-book-author"
+            name="new-book"
+          />
+          <label for="new-book-pages">Book Pages</label>
+          <input
+            class="enter"
+            type="number"
+            id="new-book-pages"
+            name="new-book"
+          />
+          <label for="new-book-status">Have You Read it?</label>
+          <select
+            class="enter"
+            type="text"
+            id="new-book-status"
+            name="new-book"
+          >
+            <option value="read">read</option>
+            <option value="reading">reading</option>
+            <option value="not-read">not-read</option>
+          </select>
+        </div>
+        <div id="new-book-buttons">
+          <button id="add" value="default">Add</button>
+          <button id="cancel" value="cancel" formmethod="dialog">Cancel</button>
+        </div>
+      </form>
     </dialog>
     <div id="main-container">
-        <div id="header">
-            <div id="buttons"></div>
-            <div id="title">
-                <p id='library-name'>Name's</p>
-                <p id='library'>Library</p>
-            </div>
-            <div id="numbers">
-                <div id="stats">
-                    <p class='stats' id="total-books">Books: 0</p>
-                    <p class='stats' id="total-read">Read: 0</p>
-                    <p class='stats' id="total-reading">Reading: 0</p>
-                    <p class='stats' id="total-not-read">Not Read: 0</p>
-                </div>
-            </div>
+      <div id="header">
+        <div id="buttons"></div>
+        <div id="title">
+          <p id="library-name">Name's</p>
+          <p id="library">Library</p>
         </div>
-        <div id="main-content">
-            <div id="add-book">
-                <button id="add-book-btn">+</button>
-            </div>
-            <div id="books"></div>
+        <div id="numbers">
+          <div id="stats">
+            <p class="stats" id="total-books">Books: 0</p>
+            <p class="stats" id="total-read">Read: 0</p>
+            <p class="stats" id="total-reading">Reading: 0</p>
+            <p class="stats" id="total-not-read">Not Read: 0</p>
+          </div>
         </div>
-        <div id="footer"></div>
+      </div>
+      <div id="main-content">
+        <div id="add-book">
+          <button id="add-book-btn">+</button>
+        </div>
+        <div id="books"></div>
+      </div>
+      <div id="footer"></div>
     </div>
-</body>
+  </body>
 </html>
