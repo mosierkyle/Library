@@ -10,6 +10,7 @@ const dialog = document.querySelector('#new-book-dialog');
 const background = document.querySelector('#body');
 const cancelBtn = document.querySelector('#cancel');
 const myLibrary = [];
+const libraryName = 'Kyle';
 
 function book(title, author, pages, status) {
   this.title = title;
@@ -176,11 +177,23 @@ addBookBtn.addEventListener('click', () => {
 
 add.addEventListener('click', (event) => {
   event.preventDefault();
-  dialog.close();
   const value1 = document.querySelector('#new-book-title').value;
   const value2 = document.querySelector('#new-book-author').value;
   const value3 = document.querySelector('#new-book-pages').value;
   const value4 = document.querySelector('#new-book-status').value;
+  if (document.getElementById('new-book-title').validity.valueMissing) {
+    document.getElementById('new-book-title').classList.add('error');
+    return;
+  }
+  if (document.getElementById('new-book-author').validity.valueMissing) {
+    document.getElementById('new-book-author').classList.add('error');
+    return;
+  }
+  if (document.getElementById('new-book-pages').validity.valueMissing) {
+    document.getElementById('new-book-pages').classList.add('error');
+    return;
+  }
+  dialog.close();
   const addNewBook = new book(value1, value2, value3, value4);
   myLibrary.push(addNewBook);
   updateLibrary();
@@ -188,6 +201,9 @@ add.addEventListener('click', (event) => {
   document.querySelector('#new-book-author').value = '';
   document.querySelector('#new-book-pages').value = '';
   document.querySelector('#new-book-status').value = '';
+  document.getElementById('new-book-title').classList.remove('error');
+  document.getElementById('new-book-author').classList.remove('error');
+  document.getElementById('new-book-pages').classList.remove('error');
 });
 
 cancelBtn.addEventListener('click', () => {
@@ -221,6 +237,5 @@ addBookToLibrary('Meditations', 'Marcus Aurelius', 410, 'read');
 addBookToLibrary("Can't Hurt Me", 'David Goggins', 320, 'read');
 addBookToLibrary('100M leads', 'Alex Hormozi', 482, 'reading');
 
-const libraryName = 'Kyle';
 document.querySelector('#library-name').textContent = `${libraryName}'s`;
 updateLibrary();

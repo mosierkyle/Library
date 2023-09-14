@@ -296,6 +296,11 @@ label {
   border-radius: 10px;
 }
 
+.error {
+  background-color: rgba(236, 105, 105, 0.892);
+  border-color: red;
+}
+
 #new-book-status {
   border: solid;
   height: 1.5rem;
